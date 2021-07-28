@@ -69,7 +69,7 @@ public class Product {
         this.user = user;
     }
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="product")
     public Set<Review> getReviews() {
         return reviews;
     }
@@ -78,7 +78,7 @@ public class Product {
         this.reviews = reviews;
     }
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "products")
     public Set<Cart> getCarts() {
         return carts;
     }

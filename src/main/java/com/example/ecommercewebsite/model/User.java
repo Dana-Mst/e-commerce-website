@@ -50,7 +50,7 @@ public class User {
         this.email = email;
     }
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     public Set<Product> getProducts() {
         return products;
     }
@@ -59,7 +59,7 @@ public class User {
         this.products = products;
     }
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     public Set<Review> getReviews() {
         return reviews;
     }
@@ -68,7 +68,7 @@ public class User {
         this.reviews = reviews;
     }
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
     public Cart getCart() {
         return cart;
     }
