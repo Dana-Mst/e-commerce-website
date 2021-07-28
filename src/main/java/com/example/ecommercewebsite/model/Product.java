@@ -44,6 +44,7 @@ public class Product {
         this.price = price;
     }
 
+    @Column(length = 1000)
     public String getDescription() {
         return description;
     }
