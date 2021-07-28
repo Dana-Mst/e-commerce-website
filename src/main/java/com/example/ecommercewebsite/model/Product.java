@@ -1,8 +1,8 @@
 package com.example.ecommercewebsite.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Product {
@@ -12,6 +12,11 @@ public class Product {
     private Double price;
     private String description;
     private String shortDescription;
+    private User user;
+
+    private Set<Review> reviews = new HashSet<>();
+
+    private Set<Cart> carts = new HashSet<>();
 
     @Id
     @GeneratedValue
@@ -53,5 +58,32 @@ public class Product {
 
     public void setShortDescription(String shortDescription) {
         this.shortDescription = shortDescription;
+    }
+
+    @ManyToOne
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @OneToMany
+    public Set<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(Set<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    @ManyToMany
+    public Set<Cart> getCarts() {
+        return carts;
+    }
+
+    public void setCarts(Set<Cart> carts) {
+        this.carts = carts;
     }
 }
